@@ -6,7 +6,25 @@
   <title>Menu</title>
 </head>
 <body>
-    <%- include('./partials/nav') %>
+    <% include('./partials/nav') %>
   <h1>Full Menu</h1>
+  <% menu.forEach(item => { %>
+    <div class="menu-item">
+        <div class="item-title">
+            <h2><%= item.name %></h2>
+            <p><strong>$<%= item.price.toFixed(2) %></strong></p>
+        </div>
+
+        <p><%= item.details %></p>
+
+        <p>
+            Rating:
+            <span class="rating">
+                <%  for(let i = 0; i < item.rating; i++) %>
+            </span>
+            (<%= item.rating %>/5)
+        </p>
+    </div>
+  <% }) %>
 </body>
 </html>
